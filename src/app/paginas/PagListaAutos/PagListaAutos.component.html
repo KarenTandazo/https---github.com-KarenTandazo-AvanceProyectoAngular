@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-header">
+    LISTA DE AUTOS
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Filtro</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Marca" [(ngModel)]="filtro">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        FILTRADO POR: {{filtro}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th>
+                <button class="btn btn-xs" 
+                [ngClass]="{'btn-success': !mostrarImagen, 'btn-warning': mostrarImagen}"
+                (click)="mostrar()"
+                [innerText]="mostrarImagen ? 'Ocultar Imagen' : 'Mostrar Imagen'">
+              </button>
+              </th>
+              <th>CÓDIGO</th>
+              <th>MARCA</th>
+              <th>MODELO</th>
+              <th>AÑO</th>
+              <th>COLOR</th>
+              <th>KILOMETRAJE</th>
+              <th>PRECIO</th>
+              <th>CALIFICACIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let auto of listaVehiculos">
+              <td><img src="{{auto.imagen}}" alt="listaVehiculos" style="width: 80px;" *ngIf="this.mostrarImagen"></td>
+              <td>
+                <a [routerLink]="['/detalle']">{{auto.codigo}}</a>
+              </td>
+              <td>{{auto.marca}}</td>
+              <td>{{auto.modelo}}</td>
+              <td [innerText]="auto.year"></td>
+              <td>{{auto.color | lowercase | AEspacio:"r"}}</td>
+              <td>{{auto.kilometraje}}</td>
+              <td>{{auto.precio | currency}}</td>
+              <td>
+                <app-calificacion [calificacion]="auto.score" (accion)="reception($event)"></app-calificacion>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
