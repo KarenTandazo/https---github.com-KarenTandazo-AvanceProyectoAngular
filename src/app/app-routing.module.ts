@@ -15,7 +15,7 @@ const routes: Routes = [
     component: PagListaAutosComponent
   },
   {
-    path: "vehiculo/:codigo",
+    path: "detalle",
     component: PagDetalleAutoComponent
   },
   {
