@@ -41,7 +41,7 @@
             <tr *ngFor="let auto of listaVehiculos">
               <td><img src="{{auto.imagen}}" alt="listaVehiculos" style="width: 80px;" *ngIf="this.mostrarImagen"></td>
               <td>
-                <a [routerLink]="['/detalle']">{{auto.codigo}}</a>
+                <a [routerLink]="['/vehiculo/']">{{auto.codigo}}</a>
               </td>
               <td>{{auto.marca}}</td>
               <td>{{auto.modelo}}</td>
