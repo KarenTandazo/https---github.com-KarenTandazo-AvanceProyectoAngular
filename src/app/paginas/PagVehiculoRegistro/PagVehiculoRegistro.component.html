@@ -9,49 +9,49 @@
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Código:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo" [(ngModel)]="vehiculo.codigo">
+              <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Marca:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="marca" formControlName="marca" [(ngModel)]="vehiculo.marca">
+              <input type="text" class="form-control" id="staticCodigo" name="marca" formControlName="marca">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Modelo:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="modelo" formControlName="modelo" [(ngModel)]="vehiculo.modelo">
+              <input type="text" class="form-control" id="staticCodigo" name="modelo" formControlName="modelo">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Año:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="year" formControlName="year" [(ngModel)]="vehiculo.year">
+              <input type="text" class="form-control" id="staticCodigo" name="year" formControlName="year">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Color:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="color" formControlName="color" [(ngModel)]="vehiculo.color">
+              <input type="text" class="form-control" id="staticCodigo" name="color" formControlName="color">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Kilometraje:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="kilometraje" formControlName="kilometraje" [(ngModel)]="vehiculo.kilometraje">
+              <input type="text" class="form-control" id="staticCodigo" name="kilometraje" formControlName="kilometraje">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Precio:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="precio" formControlName="precio" [(ngModel)]="vehiculo.precio">
+              <input type="text" class="form-control" id="staticCodigo" name="precio" formControlName="precio">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="staticCodigo" class="col-sm-2 col-form-label">Calificación:</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="staticCodigo" name="score" formControlName="score" [(ngModel)]="vehiculo.score">
+              <input type="number" class="form-control" id="staticCodigo" name="score" formControlName="score">
             </div>
           </div>
         </form>
@@ -60,5 +60,8 @@
     <div class="row">
       <button class="btn btn-info" (click)="guardar()">GUARDAR</button>
     </div>
+    <a href="#" class="btn btn-primary" [routerLink]="['/vehiculos']">
+      Cancelar
+    </a>
   </div>
 </div>
