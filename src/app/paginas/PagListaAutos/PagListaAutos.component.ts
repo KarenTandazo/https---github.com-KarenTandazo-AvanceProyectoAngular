@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-PagListaAutos',
@@ -9,15 +10,17 @@ import { VehiculoService } from '../../servicios/Vehiculo.service';
 export class PagListaAutosComponent implements OnInit {
   mostrarImagen = false;
   filtro: string = "";
+  buscar = "";
 
+  @Input() valor:string = "";
   listaVehiculos:Array<any> = [];
 
   constructor(
-    private vehiculoService: VehiculoService
+    private vehiculoService: VehiculoService,
   ) { }
 
   ngOnInit() {
-    this.listaVehiculos = this.vehiculoService.getVehiculos();
+    this.buscador();
   }
 
   mostrar(){
@@ -27,4 +30,10 @@ export class PagListaAutosComponent implements OnInit {
   reception(dato: number){
     console.log('Dato:', dato);
   }
+
+  buscador(){
+    this.vehiculoService.getVehiculos(this.filtro).subscribe(data => {
+      this.listaVehiculos = data;
+    });
+  };
 }

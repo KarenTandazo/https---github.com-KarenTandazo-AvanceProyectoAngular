@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Vehiculo } from '../utilitarios/modelos/detalleAuto';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,16 @@ export class VehiculoService {
     {"codigo": "AAA5", "imagen":"https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_05a99b23df054e0eb2c93b3885eaa13e.jpg", "marca":"HYUNDAI", "modelo":"ACCENT", "year":2021, "color":"NEGRO", "precio":60000, "kilometraje":3500, "score":4},
   ];
 
-  getVehiculos(){
-    return this.listaVehiculos;
+  getVehiculos(filtro:any): Observable<Array<Vehiculo>>{
+    const escucha: Observable<Array<Vehiculo>> = new Observable (escucha => {
+      let lista = this.listaVehiculos.filter(auto => auto.marca.toLocaleLowerCase().includes(filtro.toLocaleLowerCase()))
+      escucha.next(lista);
+    })
+    return escucha;
   };
 
   getVehiculo(codigo:String): Vehiculo | undefined{
-    let vehiculo = this.listaVehiculos.find(elemento => elemento.codigo === codigo)
+    let vehiculo = this.listaVehiculos.find(elemento => elemento.codigo === codigo);
     return vehiculo;
   };
 
