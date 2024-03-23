@@ -3,7 +3,7 @@ import { PagListaAutosComponent } from "./PagListaAutos/PagListaAutos.component"
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UtilitariosModule } from "../utilitarios/utilitariosModule";
-import { PagDetalleAutoComponent } from "./PagDetalleAuto/PagDetalleAuto.component";
+import { PagDetalleAutoComponent } from "./PagEditarAuto/PagDetalleAuto.component";
 import { RouterModule } from "@angular/router";
 import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoRegistro.component";
 

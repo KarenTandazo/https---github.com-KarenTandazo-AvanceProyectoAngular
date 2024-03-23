@@ -1,11 +1,11 @@
 export interface Vehiculo{
     codigo: string;
-    imagen?: string|null; 
+    foto?: string|null; 
     marca: string;
     modelo: string; 
-    year?: number; 
+    anio?: number; 
     color?: string;  
     precio?: number;  
     kilometraje?: number;  
-    score?: number | undefined; 
+    calificacion?: number | undefined; 
 }

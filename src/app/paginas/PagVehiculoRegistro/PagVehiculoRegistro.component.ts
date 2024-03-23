@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehiculo } from '../../utilitarios/modelos/detalleAuto';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { validadorCodigo } from '../../Validaciones/VehiculoValidaciones';
 
 @Component({
   selector: 'app-PagVehiculoRegistro',
@@ -10,17 +11,17 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 })
 export class PagVehiculoRegistroComponent implements OnInit {
 
-  formulario: FormGroup
+  formulario: FormGroup;
 
   constructor(
-    private vehiculoServicio: VehiculoService,
-    private formBuilder: FormBuilder
+    private vehiculoService: VehiculoService,
+    private formBuilder: FormBuilder,
   ) { 
     this.formulario = this.formBuilder.group({
-      "codigo": ["", [Validators.required, validadorCodigo()]],
+      "codigo": ["", [Validators.required]],
       "foto": [],
       "marca": ["", [Validators.required]],
-      "modelo": ["", [Validators.minLength(10)]],
+      "modelo": ["", [Validators.required]],
       "anio": ["", [Validators.required]],
       "color": [],
       "kilometraje": [],
@@ -33,28 +34,37 @@ export class PagVehiculoRegistroComponent implements OnInit {
   }
 
   guardar(){
-    let vehiculo:Vehiculo = {...this.formulario.value};
-    this.vehiculoServicio.addVehiculo(vehiculo);
     if (this.formulario.valid){
-      alert("Guardado con éxito");
+      this.vehiculoService.insertVehiculo({...this.formulario.value}).subscribe(
+        respuesta => {
+          if (respuesta.codigo == "1"){
+            Swal.fire({
+              title: "Mensaje",
+              text: "Vehículo registrado con éxito",
+              icon: "success"
+            }).then(formVacio => {
+              this.formulario.reset();
+            });
+          }else{
+            Swal.fire({
+              title: "Error",
+              text: "No se pudo registrar el vehículo: "+respuesta.mensaje,
+              icon: "error"
+            });
+          }
+        }
+      )
     }else{
-      alert("Formulario incompleto: Por favor revisa los valores requeridos/obligatorios");
+      Swal.fire({
+        title: "Alerta",
+        text: "Faltan campos por llenar",
+        icon: "error"
+      });
     }
   }
 }
 
-export function validadorCodigo(): ValidatorFn{
-  return (control: AbstractControl): ValidationErrors | null => {
-    const codigoV = /^\d{4}$/;
-    let value = control.value;
-    if (codigoV.test(value)){
-      return null;
-    }
-    return {"codigoValidate": true};
-  }
-}
-
-export function compararCodigo(){
+/*export function compararCodigo(){
   return (formulario: FormGroup): ValidationErrors | null => {
     let valor = formulario.controls['codigo'].value;
     let valor2 = formulario.controls['codigo_confirm'].value;
@@ -63,4 +73,4 @@ export function compararCodigo(){
     }
     return {"codigoComparativo": true};
   }
-}
+}*/
