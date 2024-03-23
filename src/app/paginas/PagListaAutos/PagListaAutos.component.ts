@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-PagListaAutos',
@@ -19,8 +20,12 @@ export class PagListaAutosComponent implements OnInit {
     private vehiculoService: VehiculoService,
   ) { }
 
-  ngOnInit() {
-    this.buscador();
+  ngOnInit(){
+    //this.buscador();
+    this.vehiculoService.getVehiculosBuscador().subscribe(respuesta => {
+      console.log(respuesta);
+      this.listaVehiculos = respuesta;
+    })
   }
 
   mostrar(){
@@ -31,9 +36,9 @@ export class PagListaAutosComponent implements OnInit {
     console.log('Dato:', dato);
   }
 
-  buscador(){
-    this.vehiculoService.getVehiculos(this.filtro).subscribe(data => {
+  /*buscador(){
+    this.vehiculoService.getVehiculosBuscador(this.filtro).subscribe(data => {
       this.listaVehiculos = data;
     });
-  };
+  };*/
 }

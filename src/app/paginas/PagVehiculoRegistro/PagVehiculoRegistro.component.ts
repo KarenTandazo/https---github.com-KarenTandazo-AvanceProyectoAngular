@@ -18,30 +18,23 @@ export class PagVehiculoRegistroComponent implements OnInit {
   ) { 
     this.formulario = this.formBuilder.group({
       "codigo": ["", [Validators.required, validadorCodigo()]],
-      "codigo_confirm": [],
-      "imagen": [],
+      "foto": [],
       "marca": ["", [Validators.required]],
       "modelo": ["", [Validators.minLength(10)]],
-      "year": [],
+      "anio": ["", [Validators.required]],
       "color": [],
       "kilometraje": [],
       "precio": [],
-      "score": [],
-    },
-    {
-      validators: compararCodigo(),
-    }
-    );
+      "calificacion": ["", [Validators.required]],
+    });
   }
 
   ngOnInit() {
-    this.formulario.controls["imagen"].disable();
   }
 
   guardar(){
     let vehiculo:Vehiculo = {...this.formulario.value};
     this.vehiculoServicio.addVehiculo(vehiculo);
-    console.log("formulario", this.formulario.value);
     if (this.formulario.valid){
       alert("Guardado con éxito");
     }else{

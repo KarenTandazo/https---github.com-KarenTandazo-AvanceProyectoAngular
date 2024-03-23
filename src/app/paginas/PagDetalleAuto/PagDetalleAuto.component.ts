@@ -24,7 +24,7 @@ export class PagDetalleAutoComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.vehiculo = this.vehiculoService.getVehiculo(params['codigo']);
+      this.vehiculo = this.vehiculoService.getVehiculoCodigoRuta(params['codigo']);
     })
   }
 

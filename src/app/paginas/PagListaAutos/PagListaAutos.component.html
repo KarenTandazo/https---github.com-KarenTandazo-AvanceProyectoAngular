@@ -7,7 +7,7 @@
     <div class="row">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Filtro</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Marca" [(ngModel)]="filtro" (keyup)="buscador()">
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Busca tu auto por Marca, Modelo o Código" [(ngModel)]="filtro">
       </div>
     </div>
     <div class="row">
@@ -46,18 +46,18 @@
           </thead>
           <tbody>
             <tr *ngFor="let auto of listaVehiculos">
-              <td><img src="{{auto.imagen}}" alt="listaVehiculos" style="width: 80px;" *ngIf="this.mostrarImagen"></td>
+              <td><img src="{{auto.foto}}" alt="listaVehiculos" style="width: 80px;" *ngIf="this.mostrarImagen"></td>
               <td>
                 <a [routerLink]="['/vehiculo/'+auto.codigo]">{{auto.codigo}}</a>
               </td>
               <td>{{auto.marca}}</td>
               <td>{{auto.modelo}}</td>
-              <td [innerText]="auto.year"></td>
-              <td>{{auto.color | lowercase | AEspacio:" "}}</td>
+              <td [innerText]="auto.anio"></td>
+              <td>{{auto.color | lowercase}}</td>
               <td>{{auto.kilometraje}}</td>
               <td>{{auto.precio | currency}}</td>
               <td>
-                <app-calificacion [calificacion]="auto.score" (accion)="reception($event)"></app-calificacion>
+                <app-calificacion [calificacion]="auto.calificacion" (accion)="reception($event)"></app-calificacion>
               </td>
             </tr>
           </tbody>

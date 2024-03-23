@@ -7,7 +7,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-5">
-        <img src="{{vehiculo?.imagen}}" alt="listaVehiculos" class="img-thumbnail">
+        <img src="{{vehiculo?.foto}}" alt="listaVehiculos" class="img-thumbnail">
       </div>
       <div class="col-1">
       </div>
@@ -33,7 +33,7 @@
         <div class="mb-6 row">
           <label for="staticCodigo" class="col-sm-3 col-form-label">Año:</label>
           <div class="col-sm-6">
-            {{vehiculo?.year}}
+            {{vehiculo?.anio}}
           </div>
         </div>
         <div class="mb-6 row">
@@ -57,7 +57,7 @@
         <div class="mb-6 row">
           <label for="staticCodigo" class="col-sm-3 col-form-label">Calificación:</label>
           <div class="col-sm-6">
-            <app-calificacion [calificacion]="vehiculo?.score"></app-calificacion>
+            <app-calificacion [calificacion]="vehiculo?.calificacion"></app-calificacion>
           </div>
         </div>
         <br>
