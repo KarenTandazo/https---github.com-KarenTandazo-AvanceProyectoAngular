@@ -1,6 +1,8 @@
 <div class="card">
   <div class="card-header">
-    Creación de Vehículo
+    <h2>
+      Creación de Vehículo
+    </h2>
   </div>
   <div class="card-body">
     <div class="row">
@@ -10,6 +12,20 @@
             <label for="staticCodigo" class="col-sm-2 col-form-label">Código:</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo">
+              <span class="text-danger" *ngIf="formulario.controls['codigo'].errors?.['required']">Valor Requerido</span>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticCodigo" class="col-sm-2 col-form-label">Confirmar código:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticCodigo" name="codigo_confirm" formControlName="codigo_confirm">
+              <span class="text-danger" *ngIf="formulario.errors?.['codigoComparativo']">No son iguales</span>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticCodigo" class="col-sm-2 col-form-label">Imagen:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticCodigo" name="image" formControlName="imagen">
             </div>
           </div>
           <div class="mb-3 row">
@@ -57,11 +73,15 @@
         </form>
       </div>
     </div>
-    <div class="row">
-      <button class="btn btn-info" (click)="guardar()">GUARDAR</button>
+    <div class="col-20 row" >
+      <div class="col-5 row">
+        <button class="btn btn-info" (click)="guardar()">GUARDAR</button>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-5 row">
+        <button href="#" class="btn btn-primary" [routerLink]="['/vehiculos']">Regresar</button>
+      </div>
     </div>
-    <a href="#" class="btn btn-primary" [routerLink]="['/vehiculos']">
-      Cancelar
-    </a>
   </div>
 </div>
