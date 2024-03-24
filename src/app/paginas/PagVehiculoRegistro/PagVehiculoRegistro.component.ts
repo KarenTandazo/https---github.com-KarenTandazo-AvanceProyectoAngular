@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { validadorCodigo } from '../../Validaciones/VehiculoValidaciones';
+import { validadorCodigo } from '../../validaciones/VehiculoValidaciones';
 
 @Component({
   selector: 'app-PagVehiculoRegistro',
@@ -42,7 +42,7 @@ export class PagVehiculoRegistroComponent implements OnInit {
               title: "Mensaje",
               text: "Vehículo registrado con éxito",
               icon: "success"
-            }).then(formVacio => {
+            }).then(res => {
               this.formulario.reset();
             });
           }else{

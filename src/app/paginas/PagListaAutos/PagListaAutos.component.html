@@ -38,26 +38,32 @@
               <th>MARCA</th>
               <th>MODELO</th>
               <th>AÑO</th>
-              <th>COLOR</th>
               <th>KILOMETRAJE</th>
               <th>PRECIO</th>
               <th>CALIFICACIÓN</th>
+              <th>OPCIONES</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let auto of listaVehiculos">
-              <td><img src="{{auto.foto}}" alt="listaVehiculos" style="width: 80px;" *ngIf="this.mostrarImagen"></td>
+              <td><img src="{{auto.foto}}" alt="Vehiculos" style="width: 80px;" *ngIf="auto.foto && mostrarImagen"></td>
               <td>
                 <a [routerLink]="['/vehiculo/'+auto.codigo]">{{auto.codigo}}</a>
               </td>
               <td>{{auto.marca}}</td>
               <td>{{auto.modelo}}</td>
               <td [innerText]="auto.anio"></td>
-              <td>{{auto.color | lowercase}}</td>
               <td>{{auto.kilometraje}}</td>
               <td>{{auto.precio | currency}}</td>
               <td>
                 <app-calificacion [calificacion]="auto.calificacion" (accion)="reception($event)"></app-calificacion>
+              </td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <button type="button" class="btn btn-info">Ver</button>
+                  <button type="button" class="btn btn-warning">Editar</button>
+                  <button type="button" class="btn btn-danger" (click)="eliminar(auto.codigo)">Eliminar</button>
+                </div>
               </td>
             </tr>
           </tbody>

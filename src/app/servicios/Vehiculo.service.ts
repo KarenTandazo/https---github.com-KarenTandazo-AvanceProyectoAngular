@@ -66,11 +66,15 @@ export class VehiculoService {
   }
 
   getVehiculoCodigoRuta(codigo:string){
-    return this.http.get<Respuesta>(this.baseUrl+"vehiculos/"+codigo);
+    return this.http.get<Respuesta>(this.baseUrl+"vehiculo/"+codigo);
   }
 
   actualizarVechiculo(vehiculo: Vehiculo, codigo:string){
     return this.http.put<Respuesta>(this.baseUrl+"vehiculo/"+codigo, vehiculo, this.httpOptions)
+  }
+
+  eliminarVechiculo(codigo:string){
+    return this.http.delete<Respuesta>(this.baseUrl+"vehiculo/"+codigo);
   }
 }
 

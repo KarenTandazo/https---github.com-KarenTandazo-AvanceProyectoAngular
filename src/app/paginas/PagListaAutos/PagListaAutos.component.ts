@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Vehiculo } from '../../utilitarios/modelos/detalleAuto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-PagListaAutos',
@@ -10,11 +12,11 @@ import { Observable } from 'rxjs';
 })
 export class PagListaAutosComponent implements OnInit {
   mostrarImagen = false;
-  filtro: string = "";
-  buscar = "";
+  _filtro: string = "";
+  //buscar = "";
 
-  @Input() valor:string = "";
-  listaVehiculos:Array<any> = [];
+  //@Input() valor:string = "";
+  listaVehiculos:Array<Vehiculo> = [];
 
   constructor(
     private vehiculoService: VehiculoService,
@@ -22,10 +24,7 @@ export class PagListaAutosComponent implements OnInit {
 
   ngOnInit(){
     //this.buscador();
-    this.vehiculoService.getVehiculosBuscador().subscribe(respuesta => {
-      console.log(respuesta);
-      this.listaVehiculos = respuesta;
-    })
+    this.consultarVehiculo();
   }
 
   mostrar(){
@@ -41,4 +40,42 @@ export class PagListaAutosComponent implements OnInit {
       this.listaVehiculos = data;
     });
   };*/
+
+  get filtro():string{
+    return this._filtro;
+  }
+
+  set filtro( filtro:string){
+    this._filtro = filtro;
+  }
+
+  consultarVehiculo(){
+    this.vehiculoService.getVehiculosBuscador().subscribe(respuesta => {
+      console.log(respuesta);
+      this.listaVehiculos = respuesta;
+    })
+  }
+
+  eliminar (codigo:string){
+    Swal.fire({
+      title: "¿Estás segur@ de eliminar este registro?",
+      showCancelButton: true,
+      confirmButtonText: "Sí",
+      cancelButtonText: "No",
+      icon: "question"
+    }).then ((res) =>{
+      if(res.isConfirmed){
+        this.vehiculoService.eliminarVechiculo(codigo).subscribe(data => {
+          if (data.codigo == "1"){
+            this.consultarVehiculo();
+            Swal.fire({
+              title: "Mensaje",
+              text: "Vehículo eliminado con éxito",
+              icon: "success"
+            });
+          }
+        });
+      }
+    });
+  }
 }

@@ -3,7 +3,7 @@ import { Vehiculo } from '../../utilitarios/modelos/detalleAuto';
 import { ActivatedRoute } from '@angular/router';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { validadorCodigo } from '../../Validaciones/VehiculoValidaciones';
+import { validadorCodigo } from '../../validaciones/VehiculoValidaciones';
 import Swal from 'sweetalert2';
 
 @Component({
