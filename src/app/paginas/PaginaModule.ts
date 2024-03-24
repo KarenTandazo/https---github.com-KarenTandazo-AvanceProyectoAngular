@@ -7,6 +7,7 @@ import { PagEditarAutoComponent } from "./PagEditarAuto/PagEditarAuto.component"
 import { RouterModule } from "@angular/router";
 import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoRegistro.component";
 import { PagDetalleAutoComponent } from "./PagDetalleAuto/PagDetalleAuto.component";
+import { PagClienteRegistroComponent } from "./PagClienteRegistro/PagClienteRegistro.component";
 
 @NgModule({
     imports:[
@@ -20,13 +21,15 @@ import { PagDetalleAutoComponent } from "./PagDetalleAuto/PagDetalleAuto.compone
         PagListaAutosComponent,
         PagDetalleAutoComponent,
         PagVehiculoRegistroComponent,
-        PagEditarAutoComponent
+        PagEditarAutoComponent,
+        PagClienteRegistroComponent
     ],
     exports:[
         PagListaAutosComponent,
         PagDetalleAutoComponent,
         PagVehiculoRegistroComponent,
-        PagEditarAutoComponent
+        PagEditarAutoComponent,
+        PagClienteRegistroComponent
     ]
 })
 export class PaginaModule{

@@ -6,6 +6,7 @@ import { PagNoEncontradaComponent } from './paginas/PagNoEncontrada/PagNoEncontr
 import { PagEditarAutoComponent } from './paginas/PagEditarAuto/PagEditarAuto.component';
 import { PagVehiculoRegistroComponent } from './paginas/PagVehiculoRegistro/PagVehiculoRegistro.component';
 import { PagDetalleAutoComponent } from './paginas/PagDetalleAuto/PagDetalleAuto.component';
+import { PagClienteRegistroComponent } from './paginas/PagClienteRegistro/PagClienteRegistro.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "vehiculo/edit/:codigo",
     component: PagEditarAutoComponent
+  },
+  {
+    path: "nuevocliente",
+    component: PagClienteRegistroComponent
   },
   {
     path: "",
