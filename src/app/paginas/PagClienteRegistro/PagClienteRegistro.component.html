@@ -1,67 +1,75 @@
-<div class="card">
-  <div class="card-header">
-    <h2>
-      Creación de Cliente
-    </h2>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-12">
-        <form [formGroup]="formulario">
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Nombre:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="nombre" formControlName="nombre">
-              <span class="text-danger" *ngIf="formulario.controls['nombre'].errors?.['required']">Valor Requerido</span>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Apellido:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="apellido" formControlName="apellido">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Contraseña:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="password" formControlName="password">
-            </div>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="mostrar()">
-            <label class="form-check-label" for="flexCheckDefault">
-              ¿Deseas contacto?
-            </label>
-          </div>
-          <br>
-          <div *ngIf="mostrarCampos">
+<div style="padding-bottom: 500px;">
+  <div class="card" style="background-color: #80a9c8e0; margin-top: 50px;">
+    <div class="card-header d-flex justify-content-center">
+      <h2>
+        Creación de Cliente
+      </h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12" style="font-size: 18px;">
+          <form [formGroup]="formulario">
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label">Teléfono:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Nombre:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticCodigo" name="telefono" formControlName="telefono">
+                <input type="text" class="form-control" id="staticCodigo" name="nombre" formControlName="nombre">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['nombre'].errors?.['required']">*Campo obligatorio</span>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label">Email:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Apellido:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticCodigo" name="email" formControlName="email">
+                <input type="text" class="form-control" id="staticCodigo" name="apellido" formControlName="apellido">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['apellido'].errors?.['required']">*Campo obligatorio</span>
               </div>
-          </div>
-          </div>
-        </form>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Contraseña:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="password" formControlName="password">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['password'].errors?.['required']">*Campo obligatorio</span>
+              </div>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="mostrar()">
+              <label class="form-check-label" for="flexCheckDefault">
+                ¿Deseas contacto?
+              </label>
+            </div>
+            <br>
+            <div *ngIf="mostrarCampos">
+              <div class="mb-3 row">
+                <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Teléfono:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticCodigo" name="telefono" formControlName="telefono">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Email:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticCodigo" name="email" formControlName="email">
+                </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-20 row d-flex justify-content-center" >
+        <div class="col-2 row">
+          <button class="btn btn-primary" (click)="guardar()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg> Registrarse 
+          </button>
+        </div>
+      </div>
+      <br>
+      <div class="card-footer">
+        <div class="d-flex justify-content-end">
+          <button class='btn btn-primary' style="width:110px" [routerLink]="['/home']">Inicio</button>
+        </div>
       </div>
     </div>
-    <div class="col-20 row d-flex justify-content-center" >
-      <div class="col-2 row">
-        <button class="btn btn-info" (click)="guardar()">REGISTRARSE</button>
-      </div>
-    </div>
-    <br>
-    <div class="card-footer">
-      <div class="d-flex justify-content-end">
-        <button class='btn btn-outline-info' style="width:110px" [routerLink]="['/vehiculos']">INICIO</button>
-      </div>
-    </div>
-      
   </div>
 </div>

@@ -1,79 +1,79 @@
-<div class="card">
-  <div class="card-header">
-    <h2>
-      Creación de Vehículo
-    </h2>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-12">
-        <form [formGroup]="formulario">
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Código:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo">
-              <span class="text-danger" *ngIf="formulario.controls['codigo'].errors?.['required']">Valor Requerido</span>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Imagen:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="image" formControlName="foto">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Marca:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="marca" formControlName="marca">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Modelo:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="modelo" formControlName="modelo">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Año:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="anio" formControlName="anio">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Color:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="color" formControlName="color">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Kilometraje:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="kilometraje" formControlName="kilometraje">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Precio:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="staticCodigo" name="precio" formControlName="precio">
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="staticCodigo" class="col-sm-2 col-form-label">Calificación:</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" id="staticCodigo" name="calificacion" formControlName="calificacion">
-            </div>
-          </div>
-        </form>
-      </div>
+<div style="padding-bottom: 500px;">
+  <div class="card" style="background-color: #80a9c8e0; margin-top: 50px;">
+    <div class="card-header d-flex justify-content-center">
+      <h2>
+        Creación de Vehículo
+      </h2>
     </div>
-    <div class="col-20 row" >
-      <div class="col-5 row">
-        <button class="btn btn-info" (click)="guardar()">GUARDAR</button>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12" style="font-size: 18px;">
+          <form [formGroup]="formulario">
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Código:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['codigo'].errors?.['required']">*Campo obligatorio </span>
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['codigo'].errors?.['codigoValidate']">*Ingresar min 4 dígitos numéricos </span>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Imagen:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="image" formControlName="foto">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Marca:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="marca" formControlName="marca">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['marca'].errors?.['required']">*Campo obligatorio</span>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Modelo:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="modelo" formControlName="modelo">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['modelo'].errors?.['required']">*Campo obligatorio</span>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Año:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="anio" formControlName="anio">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Kilometraje:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="kilometraje" formControlName="kilometraje">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Precio:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="precio" formControlName="precio">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Calificación:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="staticCodigo" name="calificacion" formControlName="calificacion">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['calificacion'].errors?.['required']">*Campo obligatorio</span>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="col-1">
-      </div>
-      <div class="col-5 row">
-        <button href="#" class="btn btn-primary" [routerLink]="['/vehiculos']">Regresar</button>
+      <div class="col-12 row" >
+        <div class="d-flex justify-content-evenly">
+          <button class='btn btn-primary' style="width:150px" [routerLink]="['/vehiculos']">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+              <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+            </svg>
+            Regresar</button>
+          <button class='btn btn-primary' style="width:150px" (click)="guardar()">Guardar Registro</button>
+        </div>
       </div>
     </div>
   </div>

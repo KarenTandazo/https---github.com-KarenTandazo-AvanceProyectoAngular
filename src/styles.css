@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url(https://s1.1zoom.me/b5050/31/Geely_Preface_2020_Metallic_Side_Chinese_Light_591044_2560x1440.jpg);
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}

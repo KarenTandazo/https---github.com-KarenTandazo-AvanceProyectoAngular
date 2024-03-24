@@ -1,79 +1,81 @@
-<div class="card">
-  <div class="card-header">
-    <h2>
-      Detalle del Vehículo: {{vehiculo?.marca}}, {{vehiculo?.modelo}}
-    </h2>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-5">
-        <img src="{{vehiculo?.foto}}" alt="listaVehiculos" class="img-thumbnail">
-      </div>
-      <div class="col-1">
-      </div>
-      <div class="col-6">
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Código:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.codigo}}
-          </div>
-        </div>
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Marca:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.marca}}
-          </div>
-        </div>
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Modelo:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.modelo}}
-          </div>
-        </div>
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Año:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.anio}}
-          </div>
-        </div>
-        <!-- <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Color:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.color}}
-          </div>
-        </div> -->
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Kilometraje:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.kilometraje}}
-          </div>
-        </div>
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Precio:</label>
-          <div class="col-sm-6">
-            {{vehiculo?.precio | currency}}
-          </div>
-        </div>
-        <div class="mb-6 row">
-          <label for="staticCodigo" class="col-sm-3 col-form-label">Calificación:</label>
-          <div class="col-sm-6">
-            <app-calificacion [calificacion]="vehiculo?.calificacion"></app-calificacion>
-          </div>
-        </div>
-        <br>
-        <a href="#" class="btn btn-primary col-sm-12" [routerLink]="['/comprar']">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-          </svg>
-          Comprar
-        </a>
-      </div>
+<div style="padding-bottom: 500px;">
+  <div class="card" style="background-color: #80a9c8e0; margin-top: 50px;">
+    <div class="card-header">
+      <h2>
+        Detalle del Vehículo: {{vehiculo?.marca}}, {{vehiculo?.modelo}}
+      </h2>
     </div>
-    <a href="#" class="btn btn-primary" [routerLink]="['/vehiculos']">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
-        <path d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753"/>
-      </svg>
-      Regresar
-    </a>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-5">
+          <img src="{{vehiculo?.foto}}" alt="listaVehiculos" class="img-thumbnail">
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-6" style="font-size: 18px;">
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Código:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.codigo}}
+            </div>
+          </div>
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Marca:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.marca}}
+            </div>
+          </div>
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Modelo:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.modelo}}
+            </div>
+          </div>
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Año:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.anio}}
+            </div>
+          </div>
+          <!-- <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label">Color:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.color}}
+            </div>
+          </div> -->
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Kilometraje:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.kilometraje}}
+            </div>
+          </div>
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Precio:</label>
+            <div class="col-sm-6">
+              {{vehiculo?.precio | currency}}
+            </div>
+          </div> 
+          <div class="mb-6 row">
+            <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Calificación:</label>
+            <div class="col-sm-6">
+              <app-calificacion [calificacion]="vehiculo?.calificacion"></app-calificacion>
+            </div>
+          </div>
+          <br>
+          <a href="#" class="btn btn-primary col-sm-12" [routerLink]="['/comprar']">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg>
+            Comprar
+          </a>
+        </div>
+      </div>
+      <a href="#" class="btn btn-primary" [routerLink]="['/vehiculos']">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+          <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+        </svg>
+        Regresar
+      </a>
+    </div>
   </div>
 </div>

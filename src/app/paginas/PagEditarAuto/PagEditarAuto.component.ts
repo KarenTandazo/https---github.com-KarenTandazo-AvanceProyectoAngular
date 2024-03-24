@@ -3,7 +3,6 @@ import { Vehiculo } from '../../utilitarios/modelos/detalleAuto';
 import { ActivatedRoute } from '@angular/router';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { validadorCodigo } from '../../validaciones/VehiculoValidaciones';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,11 +20,11 @@ export class PagEditarAutoComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { 
     this.formulario = this.formBuilder.group({
-      "codigo": ["", [Validators.required, validadorCodigo()]],
+      "codigo": ["", [Validators.required]],
       "foto": [],
       "marca": ["", [Validators.required]],
       "modelo": ["", [Validators.required]],
-      "anio": ["", [Validators.required]],
+      "anio": [],
       "color": [],
       "kilometraje": [],
       "precio": [],

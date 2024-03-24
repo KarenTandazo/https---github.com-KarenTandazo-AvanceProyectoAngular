@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { validadorCodigo } from '../../validaciones/VehiculoValidaciones';
+import { validadorCodigo } from '../../Validaciones/VehiculoValidaciones';
 
 @Component({
   selector: 'app-PagVehiculoRegistro',
@@ -18,11 +18,11 @@ export class PagVehiculoRegistroComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) { 
     this.formulario = this.formBuilder.group({
-      "codigo": ["", [Validators.required]],
+      "codigo": ["", [Validators.required, validadorCodigo()]],
       "foto": [],
       "marca": ["", [Validators.required]],
       "modelo": ["", [Validators.required]],
-      "anio": ["", [Validators.required]],
+      "anio": [],
       "color": [],
       "kilometraje": [],
       "precio": [],
