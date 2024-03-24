@@ -7,11 +7,11 @@ import { validadorCodigo } from '../../validaciones/VehiculoValidaciones';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-PagDetalleAuto',
-  templateUrl: './PagDetalleAuto.component.html',
-  styleUrls: ['./PagDetalleAuto.component.css']
+  selector: 'app-PagEditarAuto',
+  templateUrl: './PagEditarAuto.component.html',
+  styleUrls: ['./PagEditarAuto.component.css']
 })
-export class PagDetalleAutoComponent implements OnInit {
+export class PagEditarAutoComponent implements OnInit {
   vehiculo?: Vehiculo;
   formulario: FormGroup;
   

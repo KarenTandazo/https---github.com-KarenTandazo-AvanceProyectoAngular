@@ -3,9 +3,10 @@ import { PagListaAutosComponent } from "./PagListaAutos/PagListaAutos.component"
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UtilitariosModule } from "../utilitarios/utilitariosModule";
-import { PagDetalleAutoComponent } from "./PagEditarAuto/PagDetalleAuto.component";
+import { PagEditarAutoComponent } from "./PagEditarAuto/PagEditarAuto.component";
 import { RouterModule } from "@angular/router";
 import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoRegistro.component";
+import { PagDetalleAutoComponent } from "./PagDetalleAuto/PagDetalleAuto.component";
 
 @NgModule({
     imports:[
@@ -18,12 +19,14 @@ import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoR
     declarations:[
         PagListaAutosComponent,
         PagDetalleAutoComponent,
-        PagVehiculoRegistroComponent
+        PagVehiculoRegistroComponent,
+        PagEditarAutoComponent
     ],
     exports:[
         PagListaAutosComponent,
         PagDetalleAutoComponent,
-        PagVehiculoRegistroComponent
+        PagVehiculoRegistroComponent,
+        PagEditarAutoComponent
     ]
 })
 export class PaginaModule{

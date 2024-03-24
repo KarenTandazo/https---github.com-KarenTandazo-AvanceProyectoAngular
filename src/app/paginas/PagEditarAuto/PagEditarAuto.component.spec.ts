@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PagDetalleAutoComponent } from './PagDetalleAuto.component';
+import { PagEditarAutoComponent } from './PagEditarAuto.component';
 
 describe('PagDetalleAutoComponent', () => {
-  let component: PagDetalleAutoComponent;
-  let fixture: ComponentFixture<PagDetalleAutoComponent>;
+  let component: PagEditarAutoComponent;
+  let fixture: ComponentFixture<PagEditarAutoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagDetalleAutoComponent ]
+      declarations: [ PagEditarAutoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagDetalleAutoComponent);
+    fixture = TestBed.createComponent(PagEditarAutoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

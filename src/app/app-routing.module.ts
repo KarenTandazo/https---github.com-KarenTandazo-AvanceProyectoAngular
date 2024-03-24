@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './paginas/Home/Home.component';
 import { PagListaAutosComponent } from './paginas/PagListaAutos/PagListaAutos.component';
 import { PagNoEncontradaComponent } from './paginas/PagNoEncontrada/PagNoEncontrada.component';
-import { PagDetalleAutoComponent } from './paginas/PagEditarAuto/PagDetalleAuto.component';
+import { PagEditarAutoComponent } from './paginas/PagEditarAuto/PagEditarAuto.component';
 import { PagVehiculoRegistroComponent } from './paginas/PagVehiculoRegistro/PagVehiculoRegistro.component';
+import { PagDetalleAutoComponent } from './paginas/PagDetalleAuto/PagDetalleAuto.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: "vehiculo/:codigo",
     component: PagDetalleAutoComponent
+  },
+  {
+    path: "vehiculo/edit/:codigo",
+    component: PagEditarAutoComponent
   },
   {
     path: "",

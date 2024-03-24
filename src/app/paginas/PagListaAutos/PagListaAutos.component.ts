@@ -51,7 +51,6 @@ export class PagListaAutosComponent implements OnInit {
 
   consultarVehiculo(){
     this.vehiculoService.getVehiculosBuscador().subscribe(respuesta => {
-      console.log(respuesta);
       this.listaVehiculos = respuesta;
     })
   }
