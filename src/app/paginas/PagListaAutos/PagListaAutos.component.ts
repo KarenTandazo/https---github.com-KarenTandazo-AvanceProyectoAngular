@@ -12,11 +12,15 @@ import Swal from 'sweetalert2';
 })
 export class PagListaAutosComponent implements OnInit {
   mostrarImagen = false;
-  _filtro: string = "";
+  listaVehiculos:Array<Vehiculo> = [];
+  //_filtro: string = "";
+  filtro: string = "";
+  rows:number = 10;
+  page:number = 1;
+  pages:number = 0;
   //buscar = "";
 
   //@Input() valor:string = "";
-  listaVehiculos:Array<Vehiculo> = [];
 
   constructor(
     private vehiculoService: VehiculoService,
@@ -36,23 +40,55 @@ export class PagListaAutosComponent implements OnInit {
   }
 
   /*buscador(){
-    this.vehiculoService.getVehiculosBuscador(this.filtro).subscribe(data => {
+    this.vehiculoService.getVehiculosTodos(this.filtro).subscribe(data => {
       this.listaVehiculos = data;
     });
   };*/
 
-  get filtro():string{
+  /*get filtro():string{
     return this._filtro;
   }
 
   set filtro( filtro:string){
     this._filtro = filtro;
-  }
+  }*/
 
   consultarVehiculo(){
-    this.vehiculoService.getVehiculosBuscador().subscribe(respuesta => {
-      this.listaVehiculos = respuesta;
+    this.vehiculoService.getVehiculosTodos(this.filtro, this.rows, this.page).subscribe(respuesta => {
+      if (respuesta.codigo == "1"){
+        this.listaVehiculos = respuesta.data;
+        this.pages = respuesta.pages;
+        this.paginacion(respuesta.pages);
+      }
     })
+  }
+
+  cambiarPagina(pagina:number){
+    this.page = pagina;
+    this.consultarVehiculo();
+  }
+
+  listaPaginas:Array<number> = [];
+
+  paginacion(pages:number){
+    this.listaPaginas = [];
+    for(let i=1; i<=pages; i++){
+      this.listaPaginas.push(i);
+    }
+  }
+
+  btnSiguiente(){
+    if(this.page < this.pages){
+      this.page++;
+      this.consultarVehiculo();
+    }
+  }
+
+  btnAnterior(){
+    if(this.page > 1){
+      this.page--;
+      this.consultarVehiculo();
+    }
   }
 
   eliminar (codigo:string){
@@ -71,6 +107,12 @@ export class PagListaAutosComponent implements OnInit {
               title: "Mensaje",
               text: "Vehículo eliminado con éxito",
               icon: "success"
+            });
+          }else{
+            Swal.fire({
+              title: "Error",
+              text: "No se pudo eliminar el registro: "+data.mensaje,
+              icon: "error"
             });
           }
         });

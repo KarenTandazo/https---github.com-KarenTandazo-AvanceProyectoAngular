@@ -19,13 +19,12 @@ export class PagVehiculoRegistroComponent implements OnInit {
   ) { 
     this.formulario = this.formBuilder.group({
       "codigo": ["", [Validators.required, validadorCodigo()]],
-      "foto": [],
       "marca": ["", [Validators.required]],
       "modelo": ["", [Validators.required]],
-      "anio": [],
-      "color": [],
-      "kilometraje": [],
-      "precio": [],
+      "foto": [],
+      "anio": ["", [Validators.required]],
+      "kilometraje": ["", [Validators.required]],
+      "precio": ["", [Validators.required]],
       "calificacion": ["", [Validators.required]],
     });
   }

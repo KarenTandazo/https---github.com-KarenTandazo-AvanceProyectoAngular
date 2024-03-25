@@ -21,13 +21,12 @@ export class PagEditarAutoComponent implements OnInit {
   ) { 
     this.formulario = this.formBuilder.group({
       "codigo": ["", [Validators.required]],
-      "foto": [],
       "marca": ["", [Validators.required]],
       "modelo": ["", [Validators.required]],
-      "anio": [],
-      "color": [],
-      "kilometraje": [],
-      "precio": [],
+      "foto": [],
+      "anio": ["", [Validators.required]],
+      "kilometraje": ["", [Validators.required]],
+      "precio": ["", [Validators.required]],
       "calificacion": ["", [Validators.required]],
     });
     this.formulario.controls["codigo"].disable();
@@ -35,14 +34,13 @@ export class PagEditarAutoComponent implements OnInit {
 
   ngOnInit() {
     this.ActivatedRoute.params.subscribe(params => {
-      this.vehiculoService.getVehiculoCodigoRuta(params["codigo"]).subscribe(data => {
+      this.vehiculoService.getVehiculo(params["codigo"]).subscribe(data => {
         if (data.codigo == "1"){
           this.vehiculo = data.data;
           this.formulario.controls["codigo"].setValue(this.vehiculo?.codigo);
           this.formulario.controls["marca"].setValue(this.vehiculo?.marca);
           this.formulario.controls["modelo"].setValue(this.vehiculo?.modelo);
           this.formulario.controls["anio"].setValue(this.vehiculo?.anio);
-          this.formulario.controls["color"].setValue(this.vehiculo?.color);
           this.formulario.controls["precio"].setValue(this.vehiculo?.precio);
           this.formulario.controls["kilometraje"].setValue(this.vehiculo?.kilometraje);
           this.formulario.controls["calificacion"].setValue(this.vehiculo?.calificacion);
@@ -65,6 +63,12 @@ export class PagEditarAutoComponent implements OnInit {
             title: "Mensaje",
             text: "Vehículo actualizado con éxito",
             icon: "info"
+          });
+        }else{
+          Swal.fire({
+            title: "Error",
+            text: "No se pudo actualizar: "+data.mensaje,
+            icon: "error"
           });
         }
       });

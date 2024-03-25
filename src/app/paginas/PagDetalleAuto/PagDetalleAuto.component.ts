@@ -19,7 +19,7 @@ export class PagDetalleAutoComponent implements OnInit {
 
   ngOnInit() {
     this.ActivatedRoute.params.subscribe(params => {
-      this.vehiculoService.getVehiculoCodigoRuta(params["codigo"]).subscribe(data => {
+      this.vehiculoService.getVehiculo(params["codigo"]).subscribe(data => {
         if (data.codigo == "1"){
           this.vehiculo = data.data;
           this.vehiculo?.foto;
@@ -27,7 +27,6 @@ export class PagDetalleAutoComponent implements OnInit {
           this.vehiculo?.marca;
           this.vehiculo?.modelo;
           this.vehiculo?.anio;
-          this.vehiculo?.color;
           this.vehiculo?.precio;
           this.vehiculo?.kilometraje;
           this.vehiculo?.calificacion;

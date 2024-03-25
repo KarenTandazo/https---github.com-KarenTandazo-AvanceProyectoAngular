@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Vehiculo } from '../utilitarios/modelos/detalleAuto';
 import { Observable, map } from 'rxjs';
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class VehiculoService {
     {"codigo": "AAA5", "foto":"https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_05a99b23df054e0eb2c93b3885eaa13e.jpg", "marca":"HYUNDAI", "modelo":"ACCENT", "anio":2021, "color":"NEGRO", "precio":60000, "kilometraje":3500, "calificacion":4},
   ];*/
 
-  /*getVehiculosBuscador(filtro:any): Observable<Array<Vehiculo>>{
+  /*getVehiculosTodos(filtro:any): Observable<Array<Vehiculo>>{
     const escucha: Observable<Array<Vehiculo>> = new Observable (escucha => {
       let lista = this.listaVehiculos.filter(auto => 
         auto.marca.toLowerCase().includes(filtro.toLowerCase()) ||
@@ -40,7 +40,7 @@ export class VehiculoService {
     return escucha;
   };*/
 
-  /*getVehiculoCodigoRuta(codigo:String): Observable<Vehiculo>{
+  /*getVehiculo(codigo:String): Observable<Vehiculo>{
     const dato: Observable<Vehiculo> = new Observable(consulta => { 
       let vehiculo = this.listaVehiculos.find(elemento => elemento.codigo === codigo);
       consulta.next(vehiculo);
@@ -53,19 +53,24 @@ export class VehiculoService {
   }*/
   
   //API
-  getVehiculosBuscador(): Observable<Vehiculo[]>{
-    return this.http.get<Respuesta>(this.baseUrl+"vehiculos/").pipe(
+  getVehiculosTodos(filtro?:string, rows?:number, page?:number): Observable<Respuesta>{
+    let body = new HttpParams();
+    body = filtro? body.set("filtro", filtro) : body;
+    body = rows? body.set("rows", rows) : body;
+    body = page? body.set("page", page) : body;
+    return this.http.get<Respuesta>(this.baseUrl+"vehiculos/", {params: body});
+    /*return this.http.get<Respuesta>(this.baseUrl+"vehiculos/", {params: body}).pipe(
       map(respuesta => {
         return respuesta.data;
       })
-    );
+    );*/
   }
 
   insertVehiculo(vehiculo: Vehiculo){
     return this.http.post<Respuesta>(this.baseUrl+"vehiculo/", vehiculo, this.httpOptions)
   }
 
-  getVehiculoCodigoRuta(codigo:string){
+  getVehiculo(codigo:string){
     return this.http.get<Respuesta>(this.baseUrl+"vehiculo/"+codigo);
   }
 
@@ -82,4 +87,8 @@ export interface Respuesta{
   codigo: string;
   mensaje: string;
   data:Array<Vehiculo>|Vehiculo|any;
+  rows: number;
+  pages: number;
+  records: number;
+  page: number;
 }
