@@ -9,6 +9,9 @@ import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoR
 import { PagDetalleAutoComponent } from "./PagDetalleAuto/PagDetalleAuto.component";
 import { PagClienteRegistroComponent } from "./PagClienteRegistro/PagClienteRegistro.component";
 import { HomeComponent } from "./Home/Home.component";
+import { PagListaClientesComponent } from "./PagListaClientes/PagListaClientes.component";
+import { PagNoEncontradaComponent } from "./PagNoEncontrada/PagNoEncontrada.component";
+import { PagEditarClienteComponent } from "./PagEditarCliente/PagEditarCliente.component";
 
 @NgModule({
     imports:[
@@ -24,7 +27,10 @@ import { HomeComponent } from "./Home/Home.component";
         PagVehiculoRegistroComponent,
         PagEditarAutoComponent,
         PagClienteRegistroComponent,
-        HomeComponent
+        HomeComponent,
+        PagListaClientesComponent,
+        PagNoEncontradaComponent,
+        PagEditarClienteComponent
     ],
     exports:[
         PagListaAutosComponent,
@@ -32,7 +38,10 @@ import { HomeComponent } from "./Home/Home.component";
         PagVehiculoRegistroComponent,
         PagEditarAutoComponent,
         PagClienteRegistroComponent,
-        HomeComponent
+        HomeComponent,
+        PagListaClientesComponent,
+        PagNoEncontradaComponent,
+        PagEditarClienteComponent
     ]
 })
 export class PaginaModule{

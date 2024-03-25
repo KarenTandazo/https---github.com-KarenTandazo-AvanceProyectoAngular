@@ -3,6 +3,8 @@ import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { validadorCodigo } from '../../Validaciones/VehiculoValidaciones';
+import { validadorCalificacion } from '../../Validaciones/CalificaciónValidacion';
+import { validadorDecimales } from '../../Validaciones/DecimalesValidacion';
 
 @Component({
   selector: 'app-PagVehiculoRegistro',
@@ -24,8 +26,8 @@ export class PagVehiculoRegistroComponent implements OnInit {
       "foto": [],
       "anio": ["", [Validators.required]],
       "kilometraje": ["", [Validators.required]],
-      "precio": ["", [Validators.required]],
-      "calificacion": ["", [Validators.required]],
+      "precio": ["", [Validators.required, validadorDecimales()]],
+      "calificacion": ["", [Validators.required, validadorCalificacion()]],
     });
   }
 

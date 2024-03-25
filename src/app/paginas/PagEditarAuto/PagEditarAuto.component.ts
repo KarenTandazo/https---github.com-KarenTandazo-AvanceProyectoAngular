@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { validadorDecimales } from '../../Validaciones/DecimalesValidacion';
+import { validadorCalificacion } from '../../Validaciones/CalificaciónValidacion';
 
 @Component({
   selector: 'app-PagEditarAuto',
@@ -26,8 +28,8 @@ export class PagEditarAutoComponent implements OnInit {
       "foto": [],
       "anio": ["", [Validators.required]],
       "kilometraje": ["", [Validators.required]],
-      "precio": ["", [Validators.required]],
-      "calificacion": ["", [Validators.required]],
+      "precio": ["", [Validators.required, validadorDecimales()]],
+      "calificacion": ["", [Validators.required, validadorCalificacion()]],
     });
     this.formulario.controls["codigo"].disable();
   }
@@ -55,6 +57,7 @@ export class PagEditarAutoComponent implements OnInit {
       })
     })
   }
+  
   guardar(){
     if(this.formulario.valid){
       this.vehiculoService.actualizarVechiculo({...this.formulario.value}, this.formulario.controls["codigo"].value).subscribe(data => {

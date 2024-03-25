@@ -13,7 +13,6 @@
               <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Código:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['codigo'].errors?.['required']">*Campo obligatorio</span>
               </div>
             </div>
             <div class="mb-3 row">
@@ -23,44 +22,54 @@
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Marca:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Marca*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="marca" formControlName="marca">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['marca'].errors?.['required']">*Campo obligatorio</span>
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['marca'].errors?.['required']"></span>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Modelo:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Modelo*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="modelo" formControlName="modelo">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['modelo'].errors?.['required']">*Campo obligatorio</span>
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['modelo'].errors?.['required']"></span>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Año:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Año*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="anio" formControlName="anio">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['anio'].errors?.['required']"></span>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Kilometraje:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Kilometraje*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="kilometraje" formControlName="kilometraje">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['kilometraje'].errors?.['required']"></span>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Precio:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Precio*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="precio" formControlName="precio">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['precio'].errors?.['required']"></span>
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['precio'].errors?.['decimalesValidate']">Formato permitido: valor seguido de un punto (.) y 2 decimales</span>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Calificación:</label>
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Calificación*:</label>
               <div class="col-sm-10">
                 <input type="number" class="form-control" id="staticCodigo" name="calificacion" formControlName="calificacion">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['calificacion'].errors?.['required']">*Campo obligatorio</span>
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['calificacion'].errors?.['required']"></span>
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['calificacion'].errors?.['calificacionValidate']">Valor permitido: entre 1 y 5</span>
               </div>
             </div>
+            <br>
+            <div>
+              <span class="text-danger"  style="font-size: 13px;">*Campos obligatorios</span>
+            </div>
+            <br>
           </form>
         </div>
       </div>

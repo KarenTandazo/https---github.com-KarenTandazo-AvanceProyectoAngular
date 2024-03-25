@@ -2,7 +2,7 @@
   <div class="card" style="background-color: #80a9c8e0; margin-top: 50px;">
     <div class="card-header">
       <h2>
-        Detalle del Vehículo: {{vehiculo?.marca}}, {{vehiculo?.modelo}}
+        Detalle del Vehículo: {{vehiculo?.marca | uppercase}}, {{vehiculo?.modelo | uppercase}}
       </h2>
     </div>
     <div class="card-body">
@@ -22,13 +22,13 @@
           <div class="mb-6 row">
             <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Marca:</label>
             <div class="col-sm-6">
-              {{vehiculo?.marca}}
+              {{vehiculo?.marca | uppercase}}
             </div>
           </div>
           <div class="mb-6 row">
             <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Modelo:</label>
             <div class="col-sm-6">
-              {{vehiculo?.modelo}}
+              {{vehiculo?.modelo | uppercase}}
             </div>
           </div>
           <div class="mb-6 row">
@@ -37,12 +37,6 @@
               {{vehiculo?.anio}}
             </div>
           </div>
-          <!-- <div class="mb-6 row">
-            <label for="staticCodigo" class="col-sm-5 col-form-label">Color:</label>
-            <div class="col-sm-6">
-              {{vehiculo?.color}}
-            </div>
-          </div> -->
           <div class="mb-6 row">
             <label for="staticCodigo" class="col-sm-5 col-form-label" style="font-weight: bold;">Kilometraje:</label>
             <div class="col-sm-6">

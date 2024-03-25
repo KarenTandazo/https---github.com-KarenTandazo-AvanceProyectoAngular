@@ -1,0 +1,64 @@
+<div style="padding-bottom: 500px;">
+  <div class="card" style="background-color: #80a9c8e0; margin-top: 50px;">
+    <div class="card-header d-flex justify-content-center">
+      <h2>
+        Edición del Cliente
+      </h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12" style="font-size: 18px;">
+          <form [formGroup]="formulario">
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Nombre*:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="nombre" formControlName="nombre">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['nombre'].errors?.['required']"></span>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Apellido*:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="apellido" formControlName="apellido">
+                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['apellido'].errors?.['required']"></span>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Contraseña:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="password" formControlName="password">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Teléfono:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="telefono" formControlName="telefono">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Email:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticCodigo" name="email" formControlName="email">
+              </div>
+            </div>
+            <br>
+            <div>
+              <span class="text-danger"  style="font-size: 13px;">*Campos obligatorios</span>
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
+      <div class="col-12 row" >
+        <div class="d-flex justify-content-evenly">
+          <button class='btn btn-primary' style="width:150px" [routerLink]="['/clientes']">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+              <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+            </svg>
+            Regresar</button>
+          <button class='btn btn-primary' style="width:150px" (click)="guardarCliente()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
