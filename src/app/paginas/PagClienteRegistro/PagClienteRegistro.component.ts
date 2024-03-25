@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../servicios/Cliente.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,11 +18,11 @@ export class PagClienteRegistroComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) { 
     this.formulario = this.formBuilder.group({
-      "nombre": ["", [Validators.required]],
-      "apellido": ["", [Validators.required]],
+      "nombre": ["", [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]],
+      "apellido": ["", [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]],
       "password": ["", [Validators.required]],
-      "telefono": [],
-      "email": [],
+      "telefono": ["", [Validators.pattern(/^([0-9])*$/)]],
+      "email": ["", [Validators.email]],
     })
   }
 
@@ -57,8 +57,8 @@ export class PagClienteRegistroComponent implements OnInit {
       )
     }else{
       Swal.fire({
-        title: "Alerta",
-        text: "Faltan campos por llenar",
+        title: "Revisa nuevamente",
+        text: "Los datos ingresados no cumplen las validaciones",
         icon: "error"
       });
     }

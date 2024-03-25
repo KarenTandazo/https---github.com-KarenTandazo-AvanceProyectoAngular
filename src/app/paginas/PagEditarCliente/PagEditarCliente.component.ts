@@ -21,11 +21,11 @@ export class PagEditarClienteComponent implements OnInit {
   ) {
     this.formulario = this.formBuilder.group({
       "id": [],
-      "nombre": ["", [Validators.required]],
-      "apellido": ["", [Validators.required]],
-      "password": [], 
-      "telefono": [],
-      "email": [],
+      "nombre": ["", [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]],
+      "apellido": ["", [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]],
+      "password": ["", [Validators.required]],
+      "telefono": ["", [Validators.pattern(/^([0-9])*$/)]],
+      "email": ["", [Validators.email]],
     });
    }
 

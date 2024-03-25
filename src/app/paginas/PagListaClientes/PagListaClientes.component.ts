@@ -14,6 +14,7 @@ export class PagListaClientesComponent implements OnInit {
   rows:number = 10;
   page:number = 1;
   pages:number = 0;
+  mostrarPassword = true;
 
   constructor(
     private clienteService: ClienteService,
@@ -31,6 +32,10 @@ export class PagListaClientesComponent implements OnInit {
         this.paginacion(respuesta.pages);
       }
     })
+  }
+
+  mostrarPass(){
+    this.mostrarPassword = !this.mostrarPassword;
   }
 
   cambiarPagina(pagina:number){
@@ -57,6 +62,20 @@ export class PagListaClientesComponent implements OnInit {
   btnAnterior(){
     if(this.page > 1){
       this.page--;
+      this.consultarCliente();
+    }
+  }
+
+  btnPrimera(){
+    if(this.page > 1){
+      this.page = 1;
+      this.consultarCliente();
+    }
+  }
+
+  btnUltima(){
+    if(this.page < this.pages){
+      this.page = this.pages;
       this.consultarCliente();
     }
   }

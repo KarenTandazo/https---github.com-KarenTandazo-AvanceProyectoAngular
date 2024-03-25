@@ -91,6 +91,20 @@ export class PagListaAutosComponent implements OnInit {
     }
   }
 
+  btnPrimera(){
+    if(this.page > 1){
+      this.page = 1;
+      this.consultarVehiculo();
+    }
+  }
+
+  btnUltima(){
+    if(this.page < this.pages){
+      this.page = this.pages;
+      this.consultarVehiculo();
+    }
+  }
+
   eliminar (codigo:string){
     Swal.fire({
       title: "¿Estás segur@ de eliminar este registro?",
