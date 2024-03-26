@@ -108,5 +108,4 @@ export class PagListaClientesComponent implements OnInit {
       }
     });
   }
-
 }

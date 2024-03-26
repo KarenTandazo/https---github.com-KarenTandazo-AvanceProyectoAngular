@@ -65,7 +65,7 @@ export class PagEditarAutoComponent implements OnInit {
           Swal.fire({
             title: "Mensaje",
             text: "Vehículo actualizado con éxito",
-            icon: "info"
+            icon: "success"
           });
         }else{
           Swal.fire({
@@ -77,8 +77,8 @@ export class PagEditarAutoComponent implements OnInit {
       });
     }else{
       Swal.fire({
-        title: "Alerta",
-        text: "Faltan campos por llenar",
+        title: "Revisa nuevamente",
+        text: "Asegúrate de cumplir con el formato permitido y llenar todos los campos obligatorios",
         icon: "error"
       });
     }

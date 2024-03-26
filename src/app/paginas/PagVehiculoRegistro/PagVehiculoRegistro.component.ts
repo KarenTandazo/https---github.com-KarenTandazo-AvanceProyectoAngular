@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { validadorCodigo } from '../../Validaciones/VehiculoValidaciones';
 import { validadorCalificacion } from '../../Validaciones/CalificaciónValidacion';
@@ -64,14 +64,3 @@ export class PagVehiculoRegistroComponent implements OnInit {
     }
   }
 }
-
-/*export function compararCodigo(){
-  return (formulario: FormGroup): ValidationErrors | null => {
-    let valor = formulario.controls['codigo'].value;
-    let valor2 = formulario.controls['codigo_confirm'].value;
-    if (valor === valor2){
-      return null;
-    }
-    return {"codigoComparativo": true};
-  }
-}*/

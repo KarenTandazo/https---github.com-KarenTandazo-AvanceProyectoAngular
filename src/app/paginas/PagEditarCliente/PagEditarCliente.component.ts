@@ -58,7 +58,7 @@ export class PagEditarClienteComponent implements OnInit {
           Swal.fire({
             title: "Mensaje",
             text: "Vehículo actualizado con éxito",
-            icon: "info"
+            icon: "success"
           });
         }else{
           Swal.fire({

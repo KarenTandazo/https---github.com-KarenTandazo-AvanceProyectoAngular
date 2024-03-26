@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/Vehiculo.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { Vehiculo } from '../../utilitarios/modelos/detalleAuto';
 import Swal from 'sweetalert2';
 
@@ -13,21 +11,16 @@ import Swal from 'sweetalert2';
 export class PagListaAutosComponent implements OnInit {
   mostrarImagen = false;
   listaVehiculos:Array<Vehiculo> = [];
-  //_filtro: string = "";
   filtro: string = "";
   rows:number = 10;
   page:number = 1;
   pages:number = 0;
-  //buscar = "";
-
-  //@Input() valor:string = "";
 
   constructor(
     private vehiculoService: VehiculoService,
   ) { }
 
   ngOnInit(){
-    //this.buscador();
     this.consultarVehiculo();
   }
 
@@ -38,20 +31,6 @@ export class PagListaAutosComponent implements OnInit {
   reception(dato: number){
     console.log('Dato:', dato);
   }
-
-  /*buscador(){
-    this.vehiculoService.getVehiculosTodos(this.filtro).subscribe(data => {
-      this.listaVehiculos = data;
-    });
-  };*/
-
-  /*get filtro():string{
-    return this._filtro;
-  }
-
-  set filtro( filtro:string){
-    this._filtro = filtro;
-  }*/
 
   consultarVehiculo(){
     this.vehiculoService.getVehiculosTodos(this.filtro, this.rows, this.page).subscribe(respuesta => {
