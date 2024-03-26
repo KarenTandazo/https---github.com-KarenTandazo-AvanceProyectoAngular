@@ -13,42 +13,41 @@
               <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Nombre*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="nombre" formControlName="nombre">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['nombre'].errors?.['required']"></span>
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['nombre'].errors?.['pattern']">*No se aceptan números ni símbolos</span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['nombre'].errors?.['required']"></span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['nombre'].errors?.['pattern']">*No se aceptan números ni símbolos</span>
               </div>
             </div>
             <div class="mb-3 row">
               <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Apellido*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="apellido" formControlName="apellido">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['apellido'].errors?.['required']"></span>
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['apellido'].errors?.['pattern']">*No se aceptan números ni símbolos</span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['apellido'].errors?.['required']"></span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['apellido'].errors?.['pattern']">*No se aceptan números ni símbolos</span>
               </div>
             </div>
             <div class="mb-3 row">
               <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Contraseña*:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="password" formControlName="password">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['password'].errors?.['required']"></span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['password'].errors?.['required']"></span>
               </div>
             </div>
             <div class="mb-3 row">
               <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Teléfono:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="telefono" formControlName="telefono">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['telefono'].errors?.['pattern']">*Número inválido</span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['telefono'].errors?.['pattern']">*Número inválido</span>
               </div>
             </div>
             <div class="mb-3 row">
               <label for="staticCodigo" class="col-sm-2 col-form-label" style="font-weight: bold;">Email:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="staticCodigo" name="email" formControlName="email">
-                <span class="text-danger"  style="font-size: 13px;" *ngIf="formulario.controls['email'].errors?.['email']">*Correo inválido</span>
+                <span class="text-danger"  style="font-size: 15px;" *ngIf="formulario.controls['email'].errors?.['email']">*Correo inválido</span>
               </div>
             </div>
-            <br>
             <div>
-              <span class="text-danger"  style="font-size: 13px;">*Campos obligatorios</span>
+              <span class="text-danger"  style="font-size: 15px;">*Campos obligatorios</span>
             </div>
             <br>
           </form>

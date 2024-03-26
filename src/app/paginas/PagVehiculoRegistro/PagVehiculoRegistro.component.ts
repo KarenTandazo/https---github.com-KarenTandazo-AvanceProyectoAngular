@@ -57,8 +57,8 @@ export class PagVehiculoRegistroComponent implements OnInit {
       )
     }else{
       Swal.fire({
-        title: "Alerta",
-        text: "Faltan campos por llenar",
+        title: "Revisa nuevamente",
+        text: "Asegúrate de cumplir con el formato permitido y llenar todos los campos obligatorios",
         icon: "error"
       });
     }

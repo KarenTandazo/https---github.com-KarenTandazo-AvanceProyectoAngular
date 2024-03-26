@@ -18,13 +18,12 @@
     <div class="d-flex justify-content-between">
       <div class="row">
         <div >
-          <button class="btn btn-outline-dark" style="font-weight: bold; font-size: 20px;" [routerLink]="['/nuevovehiculo/']">Nuevo Vehículo</button>
+          <button class="btn btn-outline-dark" style="font-weight: bold; font-size: 18px;" [routerLink]="['/nuevovehiculo/']">Nuevo Vehículo</button>
         </div>
       </div>
       <div class="d-flex justify-content-end">
         <p style="width: 110px; font-size: 20px; font-weight: bold;">Visualizar: </p>
         <select class="form-control" style="width: 50px; background-color: #0d3049a4; color: #ffffff;" [(ngModel)]="rows" (change)="consultarVehiculo()">
-          <option value="1">1</option>
           <option value="5">5</option>
           <option value="10">10</option>
         </select>
@@ -101,8 +100,8 @@
               </li>
               <li class="page-item">
                 <button class="btn btn-dark" (click)="btnAnterior()">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
                   </svg> Anterior
                 </button>
               </li>
@@ -111,8 +110,8 @@
               </li>
               <li class="page-item">
                 <button class="btn btn-dark" (click)="btnSiguiente()">Siguiente 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                   </svg>
                 </button>
               </li>
@@ -128,6 +127,15 @@
           </nav>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-center">
+    <div class="d-flex justify-content-end">
+      <button class='btn btn-primary' style="font-weight: bold; font-size: 18px; width: 150px;" [routerLink]="['/home']">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+          <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+        </svg> Inicio</button>
     </div>
   </div>
 </div>

@@ -58,7 +58,7 @@ export class PagClienteRegistroComponent implements OnInit {
     }else{
       Swal.fire({
         title: "Revisa nuevamente",
-        text: "Los datos ingresados no cumplen las validaciones",
+        text: "Asegúrate de cumplir con el formato permitido y llenar todos los campos obligatorios",
         icon: "error"
       });
     }
